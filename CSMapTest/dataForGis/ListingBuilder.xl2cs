@@ -1,0 +1,46 @@
+{
+  "software": "CSPro", 
+  "version": 8.0, 
+  "fileType": "excelConverter", 
+  "excel": "NordEst_Habitat.xlsx", 
+  "dictionary": "Listing.dcf", 
+  "output": "ListingData.csdb", 
+  "startingRow": 2, 
+  "caseManagement": "createNewFile", 
+  "runOnlyIfNewer": false, 
+  "records": [
+    {
+      "name": "LISTING_REC", 
+      "worksheet": {
+        "name": "NordEst_Habitat", 
+        "index": 1
+      }, 
+      "items": [
+        {
+          "name": "ID", 
+          "column": 1
+        }, 
+        {
+          "name": "CLUSTERNUMBER", 
+          "column": 4
+        }, 
+        {
+          "name": "Y", 
+          "column": 2
+        }, 
+        {
+          "name": "X", 
+          "column": 3
+        }, 
+        {
+          "name": "NAME", 
+          "column": 5
+        }, 
+        {
+          "name": "SURNAME", 
+          "column": 6
+        }
+      ]
+    }
+  ]
+}

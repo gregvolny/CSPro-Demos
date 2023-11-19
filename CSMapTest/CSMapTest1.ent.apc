@@ -1,0 +1,15 @@
+﻿
+PROC GLOBAL
+
+PROC CSMAP_TEST1_FF
+
+PROC CSMAP_TEST1_LEVEL
+
+Preproc
+pickMenu();
+PROC CSMAP_TEST1_LEVEL_FORM
+Preproc
+pickMenu();
+PROC CSMAP_TEST1_ID
+Preproc
+pickMenu();

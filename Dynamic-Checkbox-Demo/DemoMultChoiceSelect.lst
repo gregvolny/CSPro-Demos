@@ -1,0 +1,61 @@
+﻿Application     C:\Users\admin\Documents\CSPro\TestCSPro 7_7\HTMLDialog\demoSelectDialog\DemoMultChoiceSelect.ent
+Type            ENTRY
+Input Data      <<Empty>> 
+
+Date            Feb 13, 2023
+Start Time      11:42:58
+End Time        11:43:32
+
+
+User unnumbered messages:
+
+    Line        Freq    %    Message Text                                                                          Denom
+    ----        ----  -----  ------------                                                                          -----
+      42           1      -  %s                                                                                        -
+      49           1      -  %s                                                                                        -
+      53           1      -  le resultat pour le choix 2 est: %s                                                       -
+
+
+CSPro Executor Normal End
+------------------------------------------------------------------------------------------------------------------------
+Application     C:\Users\admin\Documents\CSPro\TestCSPro 7_7\HTMLDialog\demoSelectDialog\DemoMultChoiceSelect.ent
+Type            ENTRY
+Input Data      <<Empty>> 
+
+Date            Feb 13, 2023
+Start Time      12:06:29
+End Time        12:06:58
+
+
+User unnumbered messages:
+
+    Line        Freq    %    Message Text                                                                          Denom
+    ----        ----  -----  ------------                                                                          -----
+      42           1      -  %s                                                                                        -
+      49           1      -  %s                                                                                        -
+      53           1      -  le resultat pour le choix 2 est: %s                                                       -
+
+
+CSPro Executor Normal End
+------------------------------------------------------------------------------------------------------------------------
+Application     C:\Users\admin\Documents\CSPro\TestCSPro 7_7\HTMLDialog\demoSelectDialog\DemoMultChoiceSelect.ent
+Type            ENTRY
+Input Data      <<Empty>> 
+
+Date            Feb 13, 2023
+Start Time      13:05:52
+End Time        13:50:48
+
+
+User unnumbered messages:
+
+    Line        Freq    %    Message Text                                                                          Denom
+    ----        ----  -----  ------------                                                                          -----
+      42           2      -  %s                                                                                        -
+      49           2      -  %s                                                                                        -
+      50           1      -  le resultat pour le choix 1 est: %s                                                       -
+      53           1      -  le resultat pour le choix 2 est: %s                                                       -
+
+
+CSPro Executor Normal End
+------------------------------------------------------------------------------------------------------------------------

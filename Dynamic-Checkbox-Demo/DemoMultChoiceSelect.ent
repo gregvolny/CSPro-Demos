@@ -1,0 +1,17 @@
+﻿[CSPro Application]
+Version=CSPro 7.7
+Label=SELCHOICE_DIALOG
+Name=SELCHOICE_DIALOG
+AppType=DataEntry
+OperatorID=No
+[AppCode]
+File=.\DemoMultChoiceSelect.ent.apc
+Include=.\src\SelectJson.apc
+[Message]
+File=.\DemoMultChoiceSelect.ent.mgf
+[Help]
+File=.\DemoMultChoiceSelect.ent.qsf
+[Forms]
+File=.\DemoMultChoiceSelect.fmf
+[Dictionary Types]
+Dict-Type=.\DemoMultChoiceSelect.dcf,Input,.\DemoMultChoiceSelect.fmf

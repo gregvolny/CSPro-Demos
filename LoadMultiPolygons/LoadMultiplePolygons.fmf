@@ -1,0 +1,46 @@
+﻿[FormFile]
+Version=CSPro 7.7
+Name=MULTIPOLYGONS_FF
+Label=LoadMultiplePolygons
+DefaultTextFont=-013 0000 0000 0000 0700 0000 0000 0000 0000 0000 0000 0000 0000 Arial
+FieldEntryFont=0018 0000 0000 0000 0600 0000 0000 0000 0000 0000 0000 0000 0000 Courier New
+Type=SystemControlled
+  
+[Dictionaries]
+File=.\MultiPolygons.dcf
+  
+[Form]
+Name=FORM000
+Label=MultiPolygons Level
+Level=1
+Size=386,198
+  
+Item=MULTIPOLYGONS_ID
+  
+[EndForm]
+  
+[Level]
+Name=MULTIPOLYGONS_LEVEL
+Label=MultiPolygons Level
+  
+[Group]
+Required=Yes
+Name=MULTIPOLYGONS_LEVEL_FORM
+Label=MultiPolygons Level
+Form=1
+Max=1
+  
+[Field]
+Name=MULTIPOLYGONS_ID
+Position=343,151,358,171
+Item=MULTIPOLYGONS_ID,MULTIPOLYGONS_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=TextBox
+Form=1
+  
+[Text]
+Position=161,154,337,170
+Text=MultiPolygons Identification
+ 
+[EndGroup]
+  

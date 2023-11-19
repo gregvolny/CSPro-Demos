@@ -1,0 +1,42 @@
+﻿[Dictionary]
+Version=CSPro 7.7
+Label=selectChoiceDialog
+Name=SELECTCHOICEDIALOG_DICT
+RecordTypeStart=1
+RecordTypeLen=1
+Positions=Relative
+ZeroFill=No
+DecimalChar=Yes
+SecurityOptions=E70D5380530F430552EDEAED728C24F08FD7B294A6843BB92D42BD832895BCB050509ED03DE9F4D1FE290C95CBECB396
+
+[Level]
+Label=selectChoiceDialog Level
+Name=SELECTCHOICEDIALOG_LEVEL
+
+[IdItems]
+
+[Item]
+Label=selectChoiceDialog Identification
+Name=SELECTCHOICEDIALOG_ID
+Start=2
+Len=1
+DataType=Numeric
+
+[Record]
+Label=selectChoiceDialog Record
+Name=SELECTCHOICEDIALOG_REC
+RecordTypeValue='1'
+RecordLen=3
+
+[Item]
+Label=View
+Name=VIEW1
+Start=3
+Len=1
+DataType=Numeric
+
+[ValueSet]
+Label=View
+Name=VIEW1_VS1
+Value=1;Choice
+Value=2;Select

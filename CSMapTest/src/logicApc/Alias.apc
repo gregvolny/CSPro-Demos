@@ -1,0 +1,8 @@
+﻿set trace(on);
+#if exists(LISTING_DICT)
+Alias
+dictName:LISTING_DICT;
+/*clusterName: CLUSTERNUMBER; not possible to define Alias for dictionaries symbols Items, record or form name
+ It's a long ago request to allow us defining Alias in any PROC and user defined functions such as
+CLUST_NO  ->  CLUSTERNUMBER*/
+#endif;

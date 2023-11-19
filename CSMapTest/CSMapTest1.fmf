@@ -1,0 +1,46 @@
+﻿[FormFile]
+Version=CSPro 8.0
+Name=CSMAP_TEST1_FF
+Label=CSMapTest1
+DefaultTextFont=-013 0000 0000 0000 0700 0000 0000 0000 0000 0000 0000 0000 0000 Arial
+FieldEntryFont=0018 0000 0000 0000 0600 0000 0000 0000 0000 0000 0000 0000 0000 Courier New
+Type=SystemControlled
+  
+[Dictionaries]
+File=.\CSMap_Test1.dcf
+  
+[Form]
+Name=FORM000
+Label=CSMap_Test1 Level
+Level=1
+Size=448,185
+  
+Item=CSMAP_TEST1_ID
+  
+[EndForm]
+  
+[Level]
+Name=CSMAP_TEST1_LEVEL
+Label=CSMap_Test1 Level
+  
+[Group]
+Required=Yes
+Name=CSMAP_TEST1_LEVEL_FORM
+Label=CSMap_Test1 Level
+Form=1
+Max=1
+  
+[Field]
+Name=CSMAP_TEST1_ID
+Position=408,140,423,160
+Item=CSMAP_TEST1_ID,CSMAP_TEST1_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=TextBox
+Form=1
+  
+[Text]
+Position=226,143,398,159
+Text=CSMap_Test1 Identification
+ 
+[EndGroup]
+  

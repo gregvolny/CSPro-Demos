@@ -1,0 +1,102 @@
+{
+  "software": "CSPro", 
+  "version": 8.0, 
+  "fileType": "application", 
+  "type": "entry", 
+  "name": "CSMAPTEST1", 
+  "label": "CSMapTest1", 
+  "dictionaries": [
+    {
+      "type": "input", 
+      "path": "CSMap_Test1.dcf", 
+      "parent": "CSMapTest1.fmf"
+    }, 
+    {
+      "type": "external", 
+      "path": "dataForGis/Listing.dcf"
+    }
+  ], 
+  "forms": [
+    "CSMapTest1.fmf"
+  ], 
+  "questionText": [
+    "CSMapTest1.ent.qsf"
+  ], 
+  "code": [
+    {
+      "type": "main", 
+      "path": "CSMapTest1.ent.apc"
+    }, 
+    {
+      "type": "external", 
+      "path": "src/logicApc/Alias.apc"
+    }, 
+    {
+      "type": "external", 
+      "path": "src/logicApc/globalMapVariables.apc"
+    }, 
+    {
+      "type": "external", 
+      "path": "src/logicApc/SelectItems.apc"
+    }, 
+    {
+      "type": "external", 
+      "path": "src/logicApc/GeometryPointsMap.apc"
+    }, 
+    {
+      "type": "external", 
+      "path": "src/logicApc/globalMap.apc"
+    }
+  ], 
+  "messages": [
+    "CSMapTest1.ent.mgf", 
+    "src/Mgf/MapFeature.mgf"
+  ], 
+  "logicSettings": {
+    "version": 8.0, 
+    "caseSensitive": {
+      "symbols": false
+    }, 
+    "actionInvoker": {
+      "accessFromExternalCaller": "promptIfNoValidAccessToken", 
+      "convertResultsForLogic": true
+    }
+  }, 
+  "properties": {
+    "askOperatorId": false, 
+    "autoAdvanceOnSelection": false, 
+    "caseTree": "mobileOnly", 
+    "centerForms": false, 
+    "createListing": false, 
+    "createLog": false, 
+    "decimalMark": "dot", 
+    "displayCodesAlongsideLabels": false, 
+    "notes": {
+      "delete": "all", 
+      "edit": "all"
+    }, 
+    "partialSave": {
+      "operatorEnabled": true, 
+      "autoSaveMinutes": 1
+    }, 
+    "showEndCaseMessage": true, 
+    "showOnlyDiscreteValuesInComboBoxes": true, 
+    "showFieldLabels": true, 
+    "showErrorMessageNumbers": false, 
+    "showQuestionText": true, 
+    "showRefusals": true, 
+    "verify": {
+      "frequency": 1, 
+      "start": 1
+    }, 
+    "htmlDialogs": true, 
+    "paradata": {
+      "collection": "all", 
+      "recordCoordinates": true, 
+      "recordInitialPropertyValues": true, 
+      "recordIteratorLoadCases": true, 
+      "recordValues": false, 
+      "deviceStateIntervalMinutes": 5
+    }
+  }
+}

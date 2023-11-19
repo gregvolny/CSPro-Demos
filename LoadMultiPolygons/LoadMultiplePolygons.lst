@@ -1,0 +1,48 @@
+﻿Application     C:\Users\admin\Documents\CSPro\TestCSPro 7_7\MapDemo\CSProuser\LoadMultiPolygons\LoadMultiplePolygons.ent
+Type            ENTRY
+Input Data      <<Empty>> 
+
+Date            May 03, 2023
+Start Time      19:18:19
+End Time        19:18:48
+
+
+System messages:
+
+  Number        Freq         Message Text                                                                               
+  ------        ----         ------------                                                                               
+    1026           2         All of the ID fields were not filled, please reenter                                       
+
+
+CSPro Executor Normal End
+------------------------------------------------------------------------------------------------------------------------
+Application     C:\Users\admin\Documents\CSPro\TestCSPro 7_7\MapDemo\CSProuser\LoadMultiPolygons\LoadMultiplePolygons.ent
+Type            ENTRY
+Input Data      <<Empty>> 
+
+Date            May 03, 2023
+Start Time      19:22:29
+End Time        19:22:41
+
+
+
+CSPro Executor Normal End
+------------------------------------------------------------------------------------------------------------------------
+Application     C:\Users\admin\Documents\CSPro\TestCSPro 7_7\MapDemo\CSProuser\LoadMultiPolygons\LoadMultiplePolygons.ent
+Type            ENTRY
+Input Data      <<Empty>> 
+
+Date            May 03, 2023
+Start Time      19:26:24
+End Time        19:26:49
+
+
+User unnumbered messages:
+
+    Line        Freq    %    Message Text                                                                          Denom
+    ----        ----  -----  ------------                                                                          -----
+      42           2      -  %v                                                                                        -
+
+
+CSPro Executor Normal End
+------------------------------------------------------------------------------------------------------------------------

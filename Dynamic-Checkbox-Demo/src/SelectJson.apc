@@ -1,0 +1,52 @@
+﻿  Function string extractNumeric (string alphanumeric)
+numeric i;
+string isNumeric,allNumeric,result;
+do i = 1 while i <= length (strip(alphanumeric))
+
+    if alphanumeric[i:1] in "0":"9" then
+  
+        isNumeric=alphanumeric [i:1];
+	
+		allNumeric = maketext("%s,%s", allNumeric, isNumeric);
+    endif;
+		
+enddo;
+result = allNumeric[2:length(allNumeric)];
+exit result;
+end;
+
+
+
+function string SelectJson(string titleName, list string headerCaption, array string data(,)) 
+string caption1,caption2,result,resultF;
+numeric ctr,ptr,i,j;
+
+do  i=1 while i <= headerCaption.length();
+if i>0 then 
+	caption1=headerCaption(1);
+	caption2=headerCaption(2);
+	endif;
+	enddo;
+	
+		string JsonPart1=maketext('{"title": "%s:","multiple": true,"header": [{"caption": "%s"}, {"caption": "%s"}],"rows": [', titleName, caption1, caption2);
+			
+
+do ctr  = 1 while ctr <= data.length(1) by 1
+		do ptr=1 while ptr<=j
+		enddo;
+		 string resultTemp = maketext('{"index": %v, "columns": [{"text":"%s"},{"text": "%v"}]},',ctr,data(ctr,1),data(ctr,2));
+
+		result = result+resultTemp;
+
+	enddo;
+	errmsg("%s",result);
+if length(result) then
+		resultF = result[1:length(result) - 1];
+	endif;
+	
+
+string SelectJsonResult=JsonPart1 + resultF + ']}';
+errmsg("%s",SelectJsonResult);
+	exit SelectJsonResult; 
+		end;
+

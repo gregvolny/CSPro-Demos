@@ -1,0 +1,14 @@
+﻿[Run Information]
+Version=CSPro 8.0
+AppType=Entry
+
+[Files]
+Application=.\CSMapTest1.ent
+InputData=|type=None
+Paradata=.\CSMapTest1.cslog
+
+[ExternalFiles]
+LISTING_DICT=.\dataForGis\ListingData.csdb
+
+[UserFiles]
+gjsonPointVector=

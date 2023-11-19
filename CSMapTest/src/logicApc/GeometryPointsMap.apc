@@ -1,0 +1,94 @@
+﻿
+
+Function setColor()
+
+end;
+
+function savePointsGeojson(cluster_Number)
+string result,pointVectorName;
+	file geojsonPointVector;
+		string queryFormater=maketext("SELECT listing_rec.y,listing_rec.x,listing_rec.name,listing_rec.surname,`level-1`.`clusternumber` FROM listing_rec JOIN `level-1` ON `level-1`.`level-1-id` = listing_rec.`level-1-id`JOIN cases ON cases.id = `level-1`.`case-id` WHERE `level-1`.`clusternumber`=%v;",cluster_Number);
+		errmsg("%s",queryFormater);
+		array string dataFromListing (100000,5);
+		dataFromListing.clear();
+		numeric queryLength=sqlquery(LISTING_DICT,dataFromListing,queryFormater);
+			//errmsg("Le nombre de ligne est %v",queryLength);
+  	pointVectorName = maketext (@"'%v.geojson'",CLUSTERNUMBER);
+		errmsg("Geojson filename is %s",pointVectorName);
+	 
+	 string MapShop= maketext ("%s", invoke("MapStore"));
+		 errmsg("The folder created is: %v",MapShop);
+		 
+	numeric isOpened= geojsonPointVector.open(MapShop+pointVectorName,create);
+		errmsg("Is opened is: %v",isOpened);
+	numeric long, lat;
+	geojsonPointVector.write('{ "type": "FeatureCollection",');
+	geojsonPointVector.write('"features": [');
+	
+	do numeric ctr = 1 while ctr <= queryLength
+		long = tonumber (dataFromListing(ctr,1));
+		lat  = tonumber (dataFromListing(ctr,2));
+				if long <> notappl & lat <> notappl then
+						string text2Display =  maketext(@"(%v),%v/%v/%v",ctr, dataFromListing(ctr,5), strip (dataFromListing(ctr,3)), strip (dataFromListing(ctr,4)));
+						string resultTemp= maketext ('{ "type": "Feature","geometry": {"type": "Point", "coordinates": [%v,%v]},"properties": {"title": "%v","Nom": "%s","description": "%s", "popupContent": "%v","style": {"weight": 2,"color": "#999","opacity": 1,"fillColor": "#B0DE5C","fillOpacity": 0.8}}},', long, lat,CLUST_NO,strip(NAME),strip(SURNAME), text2Display,setColor()); //setColor() for choosing dynamic display of colors
+			    result = result+resultTemp;       
+			endif;
+			enddo;
+if length(result) then
+		result = result[1:length(result) - 1];
+	endif;
+	geojsonPointVector.write("%s",result);
+	geojsonPointVector.write(']');
+	geojsonPointVector.write('}');
+	close(geojsonPointVector);
+		
+		end;
+
+
+function string toPointGeojson() 
+	
+	numeric long, lat;
+	string results;
+		 //using X,Y stored in rosters.
+	for numeric i in LISTING_REC do
+		long = visualvalue(Y);
+		lat  = visualvalue(X);
+		//string text2Display =  maketext(@"%V/%V/%V", CLUST_NO, visualvalue(NAME), visualvalue(SURNAME));
+		if long <> notappl & lat <> notappl then
+		string text2Display =  maketext(@"(%v),%v/%v/%v",i, CLUSTERNUMBER, strip (NAME), strip (SURNAME));
+		string resultTemp= maketext ('{ "type": "Feature","geometry": {"type": "Point", "coordinates": [%v,%v,%v]},"properties": {"title": "%v","Nom": "%s","description": "%s", "marker-symbol": "%v", "marker-size": "medium", "marker-color": "#0000ff", "stroke": "","stroke-opacity": 1.0,"stroke-width": 1.0, "fill": "","fill-opacity": 1.0 }},', long, lat, 0,CLUST_NO,NAME,SURNAME, setColor());
+		results = results+resultTemp;       
+			endif;
+					enddo;
+if length(results) then
+		results = results[1:length(results) - 1];
+	endif;
+string gjsonvector='{ "type": "FeatureCollection","features":[' + results + ']}';
+//errmsg("%s",gjsonvector);
+	exit gjsonvector; 
+		end;		
+		
+Function loadPointsVector()
+listingMap.clearGeometry();
+	geometry points;
+	points.load (@"PointVector.geojson");
+				listingMap.addgeometry(points);
+				listingMap.zoomTo(points.minLatitude(), points.minLongitude(), 14);
+				listingMap.showCurrentLocation(true);
+				listingMap.show();
+end;
+
+function DisplayVectorLayersOnMap()
+string display_options = maketext('{ "width": "%d",' 
+                                  '  "height": %d,' 
+								   '  "showCloseButton": %d,' 
+								   '  "borderColor": "#FF0000" }', 
+                                  tonumber(getproperty("MaxDisplayWidth")) * 0.8, 
+                                  tonumber(getproperty("MaxDisplayHeight")) * 0.8, true); 
+
+string result= CS.UI.showDialog(path := @".\assets\leaflet\index.html", 
+inputData := @object maketext ("%s", invoke("geojsonDataString" + toupper(""))),
+displayOptions := @object display_options);				  
+
+end;
+

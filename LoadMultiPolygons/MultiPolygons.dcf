@@ -1,0 +1,29 @@
+﻿[Dictionary]
+Version=CSPro 7.7
+Label=MultiPolygons
+Name=MULTIPOLYGONS_DICT
+RecordTypeStart=1
+RecordTypeLen=1
+Positions=Relative
+ZeroFill=No
+DecimalChar=Yes
+SecurityOptions=42BF8979FA7F8D30A7021A218485425D6D6F70F1CA3A6094D015FF5513AB00A8
+
+[Level]
+Label=MultiPolygons Level
+Name=MULTIPOLYGONS_LEVEL
+
+[IdItems]
+
+[Item]
+Label=MultiPolygons Identification
+Name=MULTIPOLYGONS_ID
+Start=2
+Len=1
+DataType=Numeric
+
+[Record]
+Label=Test
+Name=TEST
+RecordTypeValue='1'
+RecordLen=2

@@ -1,0 +1,10 @@
+﻿Application     C:\Users\admin\Documents\CSPro\CSPro 8.0\CSPro Demo\CSMapTest\CSMapTest_Oct19_23\CSMapTest1.ent
+Type            Entry
+Date            Nov 19, 2023
+Time            12:08:31
+
+CSPro Error Summary
+
+WARNING(GeometryPointsMap.apc, 33): Number of '%' arguments passed (7) does not match the number expected in the message text (6).
+
+WARNING(CSMAP_TEST1_ID, 0): File handler 'gjsonPointVector' is not used in the application

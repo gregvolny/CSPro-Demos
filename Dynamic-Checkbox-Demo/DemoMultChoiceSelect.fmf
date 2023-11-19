@@ -1,0 +1,60 @@
+﻿[FormFile]
+Version=CSPro 7.7
+Name=SELECTCHOICEDIALOG_FF
+Label=SelChoice_Dialog
+DefaultTextFont=-013 0000 0000 0000 0700 0000 0000 0000 0000 0000 0000 0000 0000 Arial
+FieldEntryFont=0018 0000 0000 0000 0600 0000 0000 0000 0000 0000 0000 0000 0000 Courier New
+Type=SystemControlled
+  
+[Dictionaries]
+File=.\DemoMultChoiceSelect.dcf
+  
+[Form]
+Name=FORM000
+Label=selectChoiceDialog Level
+Level=1
+Size=444,247
+  
+Item=SELECTCHOICEDIALOG_ID
+Item=VIEW1
+  
+[EndForm]
+  
+[Level]
+Name=SELECTCHOICEDIALOG_LEVEL
+Label=selectChoiceDialog Level
+  
+[Group]
+Required=Yes
+Name=SELECTCHOICEDIALOG_LEVEL_FORM
+Label=selectChoiceDialog Level
+Form=1
+Max=1
+  
+[Field]
+Name=SELECTCHOICEDIALOG_ID
+Position=343,105,358,125
+Item=SELECTCHOICEDIALOG_ID,SELECTCHOICEDIALOG_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=TextBox
+Form=1
+  
+[Text]
+Position=112,105,321,121
+Text=selectChoiceDialog Identification
+ 
+  
+[Field]
+Name=VIEW1
+Position=343,147,358,167
+Item=VIEW1,SELECTCHOICEDIALOG_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=RadioButton
+Form=1
+  
+[Text]
+Position=112,158,144,174
+Text=View
+ 
+[EndGroup]
+  
