@@ -12,4 +12,4 @@ extractNumeric with a string argument: alphanumeric This function will parse the
 TO DO: i) Use the result of extractNumeric and loop it in with the array used as the argument of SelectJson and having the final string. ii) Cleaning the logic. In the actual logic there's a double loop. However, I'm using only one. It's because I was seeking a way to use a single argument name for whatever array or using an Hashmap.
 
 # CSMapTest
-It's an application for displaying saved vector points with toolstips and binder tooltips. And also, tracing, modifying, displaying and saving polygons. Please see for https://www.csprousers.org/forum/viewtopic.php?t=5561
+It's a V 8.0 beta port of an application for displaying saved vector points with toolstips and binder tooltips. And also, tracing, modifying, displaying and saving polygons. Please see for https://www.csprousers.org/forum/viewtopic.php?t=5561 As for today, it's not finalized because of some issues in CSPro 8.0 beta. 
