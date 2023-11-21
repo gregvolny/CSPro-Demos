@@ -8,26 +8,26 @@ function savePointsGeojson(cluster_Number)
 string result,pointVectorName;
 	file geojsonPointVector;
 		string queryFormater=maketext("SELECT listing_rec.y,listing_rec.x,listing_rec.name,listing_rec.surname,`level-1`.`clusternumber` FROM listing_rec JOIN `level-1` ON `level-1`.`level-1-id` = listing_rec.`level-1-id`JOIN cases ON cases.id = `level-1`.`case-id` WHERE `level-1`.`clusternumber`=%v;",cluster_Number);
-		errmsg("%s",queryFormater);
+		//errmsg("%s",queryFormater);
 		array string dataFromListing (100000,5);
 		dataFromListing.clear();
 		numeric queryLength=sqlquery(LISTING_DICT,dataFromListing,queryFormater);
 			//errmsg("Le nombre de ligne est %v",queryLength);
-  	pointVectorName = maketext (@"'%v.geojson'",CLUSTERNUMBER);
-		errmsg("Geojson filename is %s",pointVectorName);
+  	pointVectorName = maketext ("Cluster_%v",cluster_Number) + ".geojson";
+		//errmsg("Geojson filename is %s",pointVectorName);
 	 
 	 string MapShop= maketext ("%s", invoke("MapStore"));
-		 errmsg("The folder created is: %v",MapShop);
+		// errmsg("The folder created is: %v",MapShop);
 		 
 	numeric isOpened= geojsonPointVector.open(MapShop+pointVectorName,create);
-		errmsg("Is opened is: %v",isOpened);
+		//errmsg("Is opened is: %v",isOpened);
 	numeric long, lat;
 	geojsonPointVector.write('{ "type": "FeatureCollection",');
 	geojsonPointVector.write('"features": [');
 	
 	do numeric ctr = 1 while ctr <= queryLength
-		long = tonumber (dataFromListing(ctr,1));
-		lat  = tonumber (dataFromListing(ctr,2));
+		long = tonumber (dataFromListing(ctr,2));
+		lat  = tonumber (dataFromListing(ctr,1));
 				if long <> notappl & lat <> notappl then
 						string text2Display =  maketext(@"(%v),%v/%v/%v",ctr, dataFromListing(ctr,5), strip (dataFromListing(ctr,3)), strip (dataFromListing(ctr,4)));
 						string resultTemp= maketext ('{ "type": "Feature","geometry": {"type": "Point", "coordinates": [%v,%v]},"properties": {"title": "%v","Nom": "%s","description": "%s", "popupContent": "%v","style": {"weight": 2,"color": "#999","opacity": 1,"fillColor": "#B0DE5C","fillOpacity": 0.8}}},', long, lat,CLUST_NO,strip(NAME),strip(SURNAME), text2Display,setColor()); //setColor() for choosing dynamic display of colors

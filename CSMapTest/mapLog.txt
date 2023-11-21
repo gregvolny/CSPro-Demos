@@ -1,9 +1,10 @@
-﻿Trace started at Sun Nov 19 12:08:51 2023
+﻿Trace started at Mon Nov 20 17:49:36 2023
 
 376  :  list string choixMenu= tr("Visualisation des donnees des grappes"),tr("Tracer ou modifier les limites d'une grappe"),tr("Effacer les donnees d'une grappe"),tr("Retour au menu principal"), tr("Fermer la carte");
 377  :  numeric menu = choixMenu.show(tr("SVP, veuillez choisir un menu"));
 380  :  when menu;
+385  :  stop();
 
 Exiting function pickMenu...
 Exiting CSMAP_TEST1_LEVEL_FORM (PreProc)...
-Trace stopped at Sun Nov 19 12:08:55 2023
+Trace stopped at Mon Nov 20 17:49:39 2023
