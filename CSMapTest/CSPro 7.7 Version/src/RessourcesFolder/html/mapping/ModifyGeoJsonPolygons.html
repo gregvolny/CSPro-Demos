@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Modify polygons</title>
+
+
+<link rel="stylesheet" href="/external/leaflet/leaflet.css" />
+    <script src="/external/leaflet/leaflet.js"></script>
+	<link rel="stylesheet" href="/external/leaflet/leaflet.draw.css" />
+    <script src="/external/leaflet/leaflet.draw.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
+<style>
+#closeButton {
+  position: absolute;
+  top: 20px;
+  opacity: 0.5;
+  right: 20px;
+  padding: 5px;
+  font-weight: bold;
+  z-index: 400;
+}
+
+#closeButton:hover{
+    opacity: 0.5;
+    cursor: pointer;
+	color: red;
+	background: yellow;
+}
+</style>
+</head>
+<body>
+	<div id="map" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+	<button  onclick=CSPro.runLogicAsync(`backMainMenu();`); id="closeButton">Menu Principal</button>
+	<script>
+	var geoJsonValue = JSON.parse(CSPro.getInputData());
+			var map = L.map('map').setView([-4.4000, 15.3800], 12);//Fit DRC Kinshasa area
+
+		var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			maxZoom: 19,
+			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+		}).addTo(map);
+
+		var drawnItems = new L.FeatureGroup();
+map.addLayer(drawnItems);
+/*var drawControl = new L.Control.Draw({
+    draw: {
+        position: 'topleft',
+       draw: {
+        polygon: {
+            allowIntersection: false, 
+            drawError: {
+                color: '#e1e100', 
+                message: '<strong>Erreur!<strong> Overlap!' 
+            },
+            
+        },
+    },
+        polygon: true,
+		polyline: false,
+        rectangle: false,
+        circle: false,
+        marker: false
+    },
+    edit: {
+        featureGroup: drawnItems,
+		remove: false,
+        edit: {
+            selectedPathOptions: {
+                color: '#FF5500',
+                opacity: 1,
+                weight: 2
+            }
+        }
+    }
+});*/
+
+var drawControl = new L.Control.Draw({
+			position: 'topleft',
+			draw: {
+				 line: false,
+  polyline: false,
+  circlemarker: false,
+  rectangle: false,
+  circle: false,
+				polygon: {
+					allowIntersection: false,
+					showArea: true,
+					drawError: {
+						color: '#b00b00',
+						timeout: 1000
+					},
+					shapeOptions: {
+						color: '#bada55'
+					}
+				},
+				
+				marker: false
+			},
+			edit: {
+				featureGroup: drawnItems,
+				remove: false
+			}
+		});
+
+
+map.addControl(drawControl);
+
+map.on('draw:created', function (e) {
+    var layer = e.layer,
+        type = e.layerType;
+     		drawnItems.addLayer(layer);
+			 var SaveGeojson = drawnItems.toGeoJSON();
+	var convertedData = JSON.stringify(SaveGeojson);
+	CSPro.runLogicAsync(`GeoJson('${convertedData}');`,"");
+			
+    });
+
+map.on('draw:edited', function (e) {
+    var layers = e.layers;
+    layers.eachLayer( function (layer) {
+	
+         var SaveGeojson = drawnItems.toGeoJSON();
+	var convertedData = JSON.stringify(SaveGeojson);
+	CSPro.runLogicAsync(`GeoJsonM('${convertedData}');`,"");
+		
+		 });
+    });
+
+var myGeoJSON =geoJsonValue;
+var geoJsonGroup = L.geoJson(myGeoJSON);
+addNonGroupLayers(geoJsonGroup, drawnItems);
+
+function addNonGroupLayers(sourceLayer, targetGroup) {
+	if (sourceLayer instanceof L.LayerGroup) {
+	
+  	sourceLayer.eachLayer(function (layer) {
+		    	addNonGroupLayers(layer, targetGroup);
+				map.fitBounds(geoJsonGroup.getBounds());
+    });
+  } else {
+  	targetGroup.addLayer(sourceLayer);
+	
+  }
+}
+
+var close=window.addEventListener('beforeunload', function(event) {
+  
+  CSPro.runLogicAsync(`closeMapView();`);
+})
+
+
+window.addEventListener("beforeunload", function (e) {
+  var confirmationMessage = "\o/";
+  CSPro.runLogicAsync(`backMainMenu();`);
+  (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+  return confirmationMessage;                            //Webkit, Safari, Chrome
+});
+ 	</script>
+</body>
+</html>
