@@ -1,0 +1,32 @@
+﻿[FormFile]
+Version=CSPro 8.0
+Name=V8TESTDEMO_FF
+Label=v8TestDemo
+DefaultTextFont=-013 0000 0000 0000 0700 0000 0000 0000 0000 0000 0000 0000 0000 Arial
+FieldEntryFont=0018 0000 0000 0000 0600 0000 0000 0000 0000 0000 0000 0000 0000 Courier New
+Type=SystemControlled
+  
+[Dictionaries]
+File=.\v8TestDemo.dcf
+  
+[Form]
+Name=FORM000
+Label=v8TestDemo Level
+Level=1
+Size=0,0
+  
+  
+[EndForm]
+  
+[Level]
+Name=V8TESTDEMO_LEVEL
+Label=v8TestDemo Level
+  
+[Group]
+Required=Yes
+Name=V8TESTDEMO_LEVEL_FORM
+Label=v8TestDemo Level
+Form=1
+Max=1
+[EndGroup]
+  

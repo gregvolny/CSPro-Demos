@@ -1,0 +1,57 @@
+
+
+Ping: <el id="pingSpan">Waiting</el>
+<img id="pingTester">
+
+<br> <br>
+
+<button onclick="start()">
+  Start Ping Test
+</button>
+<button onclick="stop()">
+  Stop
+</button>
+
+body {
+  background: #1A1A1A;
+  color: white
+}
+
+img {
+  display: none
+}
+
+
+let pingSpan = document.getElementById('pingSpan');
+// Remove all the way to ...
+let run;
+
+function start() {
+  run = true;
+  pingTest();
+}
+
+function stop() {
+  run = false;
+  setTimeout(() => {
+    pingSpan.innerHTML = "Stopped !";
+  }, 500);
+}
+
+// ... here
+
+function pingTest() {
+  if (run == true) { //Remove line
+    let pinger = document.getElementById('pingTester');
+    let start = new Date().getTime();
+    pinger.setAttribute('src', 'http://192.168.0.1');
+    pinger.onerror = () => {
+      let end = new Date().getTime();
+      // Change to whatever you want it to be, I've made it so it displays on the page directly, do whatever you want but keep the "end - start + 'ms'"
+      pingSpan.innerHTML = end - start + "ms";
+    }
+    setTimeout(() => {
+      pingTest();
+    }, 1000);
+  } // Remove this line too
+}

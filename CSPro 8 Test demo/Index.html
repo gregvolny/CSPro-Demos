@@ -1,0 +1,99 @@
+a<tml lang="en">
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1">
+
+    <link rel="stylesheet" href="/external/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="/external/bootstrap/bootstrap-icons.css" />
+    <link rel="stylesheet" href="/css/reports.css" />
+	<link rel="stylesheet" href="/css/reports.css" />
+
+    <script src="/external/bootstrap/bootstrap.bundle.min.js"></script>
+	<script src="/external/mustache/mustache.min.js"></script>
+    
+	<script src="/action-invoker.js"></script>
+	<script src="/external/jquery/jquery.min.js"></script>
+    <?
+    string report_title = "Test for CSPro 8.0";
+    string report_subtitle = "Menu for main Application";
+    ?>
+	
+<body>
+	
+	<!-- Header -->
+    <div class="jumbotron text-center" style="background-color:#ddd;">
+	    <div>
+            <a href="https://www.census.gov/data/software/cspro.html"><img src="Capture.png" /></a>
+        </div>
+        <h1 style="letter-spacing:10px;">~~report_title~~</h1>
+        <span style="letter-spacing:5px;">~~report_subtitle~~</span>
+    </div>
+
+
+	<table class="table table-striped table-bordered">
+		<thead>
+			<tr>
+				
+				<th>Test1</th>
+				<th>Test2 </th>
+				<th>Questionnaire</th>
+
+			</tr>
+		</thead>
+		
+		<tbody>
+		
+		<? do numeric ctr = 1 while ctr <= 5 ?>
+		
+		
+			<tr>
+				<td>~~Products~~</td>
+				<td>Results</td>
+				<td>2/3</td> 	
+							<td><a href="javascript:CSPro.runLogicAsync('lancerQuest(~~ctr~~,~~ctr~~);');">Launch an application</a></td>
+			</tr>
+		<? enddo; ?>
+	  </tbody>
+	</table>
+	
+	<p class="text-center"> ~~timestring("%H:%M - %m/%d/%y")~~</p>
+		
+	<!-- Footer -->
+	<footer class="page-footer font-small bg-dark">
+		 <div class="footer-copyright text-center text-light py-3">
+            
+            <a href="https://Csprousers.org">CSProusers Website</a>
+        </div>
+	</footer>
+<script>
+        const CS = new CSProActionInvoker();
+
+        CS.getWindowForEventListener().addEventListener("message", (event) => {
+			const data = JSON.parse(event.data);
+
+            $("#progress").text(data.progress);
+
+            if( data.key ) {
+                $("#key").text(data.key);
+            }
+		});        
+
+        let input = CS.UI.getInputData();
+        
+        if( input.operation ) {
+            $("#operation").text(input.operation);
+        }
+        
+        CS.Logic.invokeAsync({
+            function: input.function
+        })
+        .then(() => {
+            CS.UI.closeDialog();
+        });
+    </script>
+</script>
+</body>
+
+</html>

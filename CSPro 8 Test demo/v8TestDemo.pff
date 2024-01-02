@@ -1,0 +1,9 @@
+﻿[Run Information]
+Version=CSPro 8.0
+AppType=View
+Description=CSPro 8.0 Demo Applications
+
+[Files]
+Application=.\Index.html
+InputData=|type=None
+

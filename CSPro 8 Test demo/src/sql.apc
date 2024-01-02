@@ -1,0 +1,2 @@
+﻿
+string testQuery="SELECT departement,commune,section_com,quartier,sde,zone,rue FROM db_ipb_rec;";

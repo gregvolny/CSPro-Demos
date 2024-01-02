@@ -1,0 +1,53 @@
+{
+  "software": "CSPro", 
+  "version": 8.0, 
+  "fileType": "dictionary", 
+  "name": "V8TESTDEMO_DICT", 
+  "labels": [ { "text": "v8TestDemo" } ], 
+  "security": {
+    "allowDataViewerModifications": true, 
+    "allowExport": true, 
+    "cachedPasswordMinutes": 0, 
+    "settings": "588dd9ab62cf2c60d7a4258caf7065da3a1f975de7b52e6407d1cc92954e62a4"
+  }, 
+  "readOptimization": true, 
+  "recordType": {
+    "start": 1, 
+    "length": 1
+  }, 
+  "defaults": {
+    "decimalMark": true, 
+    "zeroFill": false
+  }, 
+  "relativePositions": true, 
+  "levels": [
+    {
+      "name": "V8TESTDEMO_LEVEL", 
+      "labels": [ { "text": "v8TestDemo Level" } ], 
+      "ids": {
+        "items": [
+          {
+            "name": "V8TESTDEMO_ID", 
+            "labels": [ { "text": "v8TestDemo Identification" } ], 
+            "contentType": "numeric", 
+            "start": 2, 
+            "length": 1, 
+            "zeroFill": false
+          }
+        ]
+      }, 
+      "records": [
+        {
+          "name": "V8TESTDEMO_REC", 
+          "labels": [ { "text": "v8TestDemo Record" } ], 
+          "recordType": "1", 
+          "occurrences": {
+            "required": true, 
+            "maximum": 1
+          }, 
+          "items": []
+        }
+      ]
+    }
+  ]
+}

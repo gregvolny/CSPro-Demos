@@ -1,0 +1,11 @@
+﻿
+array string testArray (100,7);
+
+Function string dataFile()
+string dbFile;
+#if exists(V8TESTDEMO_DICT) 
+ dbFile=maketext (pathname(Application) + "..\Data\IlistingData"+".csdb");
+ #endif;
+errmsg ("%v",dbFile);
+exit dbFile;
+end;
