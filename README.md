@@ -10,3 +10,6 @@ TO DO: i) Use the result of extractNumeric and loop it in with the array used as
 It's a V 8.0 beta port of a V 7.7 "almost ready to use" CSPro Logic library for creating, displaying and saving vector points with toolstips and binder tooltips on Leaflet and CSPro Map. We can also, trace, modify, display and save polygons. Please see https://www.csprousers.org/forum/viewtopic.php?t=5561 and read the basic ppt presentation about it. It worked almost well when tested with legacy .dat files and V 7.7. However the V 8.0 isn't finalized because of some issues in CSPro 8.0 beta. Notice: Data (Points) used in this application comes from National Center for Geospatial Information (CNIGS-Haiti). I randomly add French and Haitian names and surnames. So they are not other than mock PII!
 # LoadMultiPolygons
 It's a CSPro 7.7 demo designed for supporting CSProuser: https://www.csprousers.org/forum/viewtopic.php?p=16951
+# CSPro 8 Test demo
+It's a basic  demo for testing the new Sqlite Action Invoker Namespace. Mainly, filing a multidimensional array (more than 3 dimensions).I also want to receive messages posted by postWebMessage directly in CSPro logic. Until today the  CS.getWindowForEventListener().addEventListener("message", (event) => { isn't directly available inside CSPro logic.
+
