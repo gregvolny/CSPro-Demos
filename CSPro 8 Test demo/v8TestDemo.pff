@@ -1,9 +1,7 @@
 ﻿[Run Information]
 Version=CSPro 8.0
-AppType=View
-Description=CSPro 8.0 Demo Applications
+AppType=Entry
 
 [Files]
-Application=.\Index.html
+Application=.\v8TestDemo.ent
 InputData=|type=None
-

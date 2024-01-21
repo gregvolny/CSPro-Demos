@@ -1,12 +1,14 @@
 ﻿
-function dbOperations()
+function testShowArray()
 numeric dbTest = tonumber(CS.Sqlite.open(path :=maketext("%s",invoke("dataFile"))));
 
 testArray.updateValueFromJson(
   CS.Sqlite.exec(db := dbTest,
-                   sql :="SELECT departement,commune,section_com,quartier,sde,zone,rue FROM db_ipb_rec;",             // @object testQuery, Error: Don't accept an initialized string as string
-                   rowFormat := "Array"));
+                   sql := testQuery,             // @object testQuery, Error: Don't accept an initialized string as string
+                   rowFormat := "array"));
 
 // close the database
 CS.Sqlite.close(db := dbTest);
+numeric countrySelection = showarray("Choisir un pays", testArray,
+    title("departement", "commune", "section_com", "quartier", "sde", "zone", "rue"));
 end;
